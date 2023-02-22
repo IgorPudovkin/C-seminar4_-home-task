@@ -1,20 +1,22 @@
-﻿// Задача 25. Напишите цикл, который принимает на вход два числа (A и B)
+﻿// Задача 25. Напишите функцию, который принимает на вход два числа (A и B)
 // и возводит число A в натуральную степень B.
-// 3, 5 -> 243 (3⁵)    2, 4 -> 16
-int numberA = ReadInt("Enter number A: ");
-int numberB = ReadInt("Enter number B: ");
-ToDegree(numberA, numberB);
-void ToDegree(int a, int b)
+Console.Clear();
+Console.Write("Enter number: ");
+int A = int.Parse(Console.ReadLine()!);
+Console.Write("Enter degree: ");
+int B = int.Parse(Console.ReadLine()!);
+
+Console.WriteLine($"{A} to the degree {B} = {Pow(A,B)}");
+
+
+int Pow(int num, int rank)
 {
- int result = 1;
- for (int i = 1; i <= b; i++)
+    if(B==0) return 1;
+
+    int result = num;
+    for (int i = 2; i <= rank; i++)
     {
- result = result * a;
+        result *= num;
     }
- Console.WriteLine(result);
-}
-int ReadInt(string message)
-{
- Console.WriteLine(message);
- return Convert.ToInt32(Console.ReadLine());
+    return result;
 }

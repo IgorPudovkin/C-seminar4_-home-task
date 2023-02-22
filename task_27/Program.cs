@@ -1,31 +1,16 @@
-﻿// Задача 27. Напишите программу, которая принимает на вход число и
-// выдаёт сумму цифр в числе.
-//452 -> 11       82 -> 10       9012 -> 12
-int number = ReadInt("Введите число: ");
-int len = NumberLen(number);
-SumNumbers(number, len);
-int ReadInt(string message)
+﻿// Задача 27. Напишите программу, которая принимает 
+//на вход число N и выдаёт сумму цифр в числе.
+Console.Clear();
+Console.Write("Enter number: ");
+int num = int.Parse(Console.ReadLine()!);
+Console.WriteLine($"Sum of digits = {GetSumNums(num)}");
+int GetSumNums(int number)// n = 0
 {
- Console.Write(message);
- return Convert.ToInt32(Console.ReadLine());
-}
-int NumberLen(int a)
-{
- int index = 0;
- while (a > 0)
+    int sum = 0;//sum = 6 
+    while(number>0) // 0 > 0
     {
- a /= 10;
- index++;
+        sum+=number%10;// sum += 1
+        number/=10;// 1 /=10
     }
- return index;
-}
-void SumNumbers(int n, int len)
-{
- int sum = 0;
- for (int i = 1; i <= len; i++)
-    {
- sum += n % 10;
- n /= 10;
-    }
- Console.WriteLine(sum);
+    return sum;
 }
